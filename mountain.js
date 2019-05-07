@@ -21,3 +21,5 @@ app.delete('/:id', (req,res) => {
   console.log(removedMountain);
   res.json(removedMountain);
 })
+
+module.exports()
