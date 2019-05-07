@@ -4,13 +4,23 @@ const PORT = 8080;
 const cors = require('cors')
 const bodyParser = require('body-parser');
 const uuid = require('uuid');
+// const User = require('./user');
 let mountains = [];
+let users = [];
 
 
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get('/user', (req,res) => res.json(users));
 
+app.post('/user', (req,res) => {
+  const newUser = (req.body);
+  const id = uuid();
+  const addId = {...newUser, id: id}
+  users.push(addId);
+  res.json(users);
+})
 
 
 app.get('/', (req,res) => res.json(mountains));
